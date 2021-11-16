@@ -1,0 +1,20 @@
+<div>
+  Nom :
+  <input type="text"  [(ngModel)]="nom">
+  Tel :
+  <input type="text"  [(ngModel)]="tel">
+  <button (click)="onAddContact()" >Ajouter contact</button>
+  <button (click)="onSearchContact()" >rechercher contact</button>
+</div>
+
+<div *ngIf="contacts.length>0;else vide">
+  <h3> liste des contacts</h3>
+  <li *ngFor = "let c of contacts">
+    {{c.nom}} : {{c.tel}}
+  </li>
+</div>
+<ng-template #vide>
+  <div>
+    Aucun contact
+  </div>
+</ng-template>
